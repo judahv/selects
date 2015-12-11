@@ -1,0 +1,872 @@
+@charset "UTF-8";
+
+/* 
+ * Smart Catalog Gift
+ * 
+ * @author Miho Takeuchi
+ * 
+ * ========== TABLE of CONTENTS ==========
+ * 
+ * 1:reset
+ * 2:layout
+ * 3:header
+ * 4:footer
+ * 5:contents
+ * clearfix rules(float clear hack)
+ * 
+ * ========== TABLE of CONTENTS ==========
+ */
+ 
+$IMG_PATH: '../img/';
+$font_size:15;
+$line_height:2;
+$color:#333;
+
+
+/* ----------------------------------
+ * 1:reset
+ *
+ * @section reset
+ * 
+ */
+ 
+body{
+	margin: 0;
+	padding: 0;
+	min-width: 1020px;//for smartphone
+ 	color: $color;
+	font-family : "ＭＳ Ｐ明朝", "細明朝体", "ヒラギノ明朝 Pro W3",serif;
+	font-size: #{$font_size}px;
+	line-height: $line_height;
+}
+
+dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,input,p,blockquote,fieldset,div,article,aside,dialog,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video{
+	margin: 0;
+ 	padding: 0;
+}
+
+article,aside,dialog,figure,footer,header,hgroup,nav,section{
+	display: block;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-size: 100%;
+	font-weight: normal;
+}
+
+ul li, ol li{
+	list-style: none;
+}
+
+table{
+	margin:0;
+	padding:0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 100%;
+}
+caption,th{
+	text-align: left;
+}
+caption{
+	display: none;
+}
+	
+table,pre,code,select,input,textarea,kbd,var,ins,del,samp,small{
+	font-size: 100%;
+}
+	
+address,cite,dfn,em,strong,var,th,ins,del,samp{
+	font-weight: normal;
+	font-style: normal;
+}
+
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+a img{
+	border: 0;
+}
+
+fieldset{
+	border: none;
+}
+button,input,textarea,select{
+	font-family: "Hiragino Kaku Gothic Pro","メイリオ", sans-serif;
+}
+img{
+	vertical-align: bottom;
+}
+
+/* ---------- /1:reset  ---------- */
+
+/* ----------------------------------
+ * 2:layout
+ *
+ * @section layout
+ * 
+ */
+
+
+/* ---------- /2:layout ---------- */
+
+/* ----------------------------------
+ * 3:header
+ *
+ * @section header
+ * 
+ */
+
+#header{
+	position: fixed;
+	z-index: 999999;
+	width: 100%;
+	height: 125px;
+	background-color: #fff;
+	.wr{
+		width: 1020px;
+		margin: 0 auto;
+		@extend .clearfix;
+	}
+	.wr02{
+		margin: 11px 0 0 14px;
+	}
+	.lg{
+		float: left;
+	}
+	#nav{
+		float: left;
+	}
+	#nav li{
+		display: inline-block;
+		a{
+			display: inline-block;
+			width: 115px;
+			height: 102px;
+			background: url(#{$IMG_PATH}sp_nav01@1.png) no-repeat;
+			text-indent: -9999px;
+			vertical-align: middle;
+			overflow: hidden;
+			@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+				background: url(#{$IMG_PATH}sp_nav01.png) no-repeat;
+				background-size: 573px 204px;
+			}
+		}
+		&.pt01 a:hover{
+			background-position: 0 -102px;
+		}
+		&.pt02 a{
+			background-position: -115px 0;
+		}
+		&.pt02 a:hover{
+			background-position: -115px -102px;
+		}
+		&.pt03 a{
+			background-position: -230px 0;
+		}
+		&.pt03 a:hover{
+			background-position: -230px -102px;
+		}
+		&.pt04 a{
+			background-position: -345px 0;
+		}
+		&.pt04 a:hover{
+			background-position: -345px -102px;
+		}
+		&.pt05 a{
+			width: 113px;
+			background-position: -460px 0;
+		}
+		&.pt05 a:hover{
+			background-position: -460px -102px;
+		}
+	}
+	.tel{
+		float: left;
+	}
+}
+
+/* ---------- /3:header ---------- */
+
+/* ----------------------------------
+ * 4:footer
+ *
+ * @section footer
+ * 
+ */
+
+#footer{
+	padding: 33px 16px 40px 16px;
+	color: #ccc;
+	background: #333;
+	text-align: center;
+	.cr{
+		font-size: 14px;
+	}
+}
+#link{
+	margin-bottom: 17px;
+	li{
+		display: inline-block;
+	}
+	a{
+		display: inline-block;
+		padding: 0 18px;
+		color: #ccc;
+	}
+	li:after{
+		content: '|';
+	}
+	li:last-child:after{
+		content: '';
+	}
+}
+
+
+
+/* ---------- /4:footer ---------- */
+
+
+/* ----------------------------------
+ * 5:contents
+ *
+ * @section contents
+ * 
+ */
+ 
+ img.lazy{
+ 	display: none;
+ }
+
+#contents{
+	padding-top: 125px;
+	overflow: hidden;//for smartphone
+	h1{
+		width: 971px;
+		margin: 0 auto 25px auto;
+		padding: 0 0 0 49px;
+		font-size: 23px;
+		font-family: "Hiragino Kaku Gothic Pro","メイリオ", sans-serif;
+	}
+	body.lp & h1{
+		width: auto;
+		margin-bottom: 30px;
+		padding: 0;
+		background: url(#{$IMG_PATH}bg03@1.jpg) no-repeat center;
+		text-align: center;
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+				background: url(#{$IMG_PATH}bg03.jpg) no-repeat center;
+				background-size: 1538px 551px;
+			}
+	}
+} 
+
+.bnr{
+	#contents & {
+		margin-bottom: 29px;
+		text-align: center;
+	}
+	#feature & {
+			margin-bottom: 0;
+	}
+}
+
+.inquiry{
+	position: relative;
+	width: 1002px;
+	margin: 0 auto 91px auto;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #e5e6e6;
+	& .btn{
+		position: absolute;
+		top: 221px;
+		left: 27px;
+	}
+	a:hover{
+	opacity: 0.7;
+	}
+	.btn02{
+		position: absolute;
+		top: 221px;
+		left: 508px;
+	}
+}
+
+.title{
+		margin-bottom: 47px;
+		color: #281815;
+		font-size: 24px;
+		text-align: center;
+	&:before{
+		display: inline-block;
+		width: 66px;
+		height: 20px;
+		margin-right: 14px;
+		background: url("#{$IMG_PATH}bg01.png");
+		background-size: contain;
+		vertical-align: middle;
+		content: "";
+	}
+	&:after{
+		display: inline-block;
+		width: 66px;
+		height: 20px;
+		margin-left: 14px;
+		background: url("#{$IMG_PATH}bg02.png");
+		background-size: contain;
+		vertical-align: middle;
+		content: "";
+	}
+}
+
+#customize{
+	width: 1020px;
+	margin: 0 auto 79px auto;
+	padding: 0 11px 99px 11px;
+	border-bottom: 1px solid #e5e6e6;
+	h2{
+		@extend .title;
+	}
+	p{
+		width: 1002px;
+		height: 734px;
+		margin: 0 auto;
+	}
+}
+
+#send{
+	width: 1020px;
+	margin: 0 auto 89px auto;
+	h2{
+		@extend .title;
+		margin-bottom: 24px;
+	}
+	.lead{
+		margin-bottom: 41px;
+		text-align: center;
+	}
+	.step{
+		width: 1002px;
+		margin: 0 auto;
+	}
+}
+
+#receive{
+	@extend #send;
+	margin-bottom: 102px;
+}
+
+#rank{
+	width: 1020px;
+	margin: 0 auto 89px auto;
+	h2{
+		@extend .title;
+		margin-bottom: 34px;
+	}
+	.wr02{
+		float: left;
+		width: 266px;
+		margin-left: 32px;
+	}
+	.wr03{
+		float: left;
+		width: 266px;
+		margin-left: 75px;
+	}
+	.wr04{
+		float: right;
+		width: 266px;
+		margin-right: 42px;
+	}
+	.wr05{
+		@extend .clearfix;
+	}
+	.wr{
+		width: 266px;
+		margin-right: 65px;
+		padding: 16px 5px;
+		border-bottom: 1px solid #c8c8c9;
+		font-family: "Hiragino Kaku Gothic Pro","メイリオ", sans-serif;
+		vertical-align: top;
+		&.first{
+			border-top: 1px solid #c8c8c9;
+		}
+	}
+	.rank{
+		display: table-cell;
+		width: 29px;
+		color: #281815;
+		font-size: 21px;
+		text-align: center;
+		line-height: 1;
+		img{
+			margin-bottom: 11px;
+			vertical-align: top;
+		}
+	}
+	.img{
+		display: table-cell;
+		width: 60px;
+		padding: 0 9px 0 8px;
+		vertical-align: top;
+	}
+	.sum{
+		display: table-cell;
+		width: 143px;
+		line-height: 1.2;
+		vertical-align: top;
+		.com{
+			font-size: 12px;
+		}
+		.pro{
+			color: #281815;
+			font-size: 16px;
+		}
+		.price{
+			color: #281815;
+			font-size: 16px;
+		}
+		.tax{
+			font-size: 12px;
+		}
+	}
+}
+
+#rank02{
+	width: 1020px;
+	margin: 0 auto 98px auto;
+	padding: 0 35px 0 0;
+	& h2{
+		@extend .title;
+		margin-bottom: 8px;
+	}
+	.lead{
+		margin-bottom: 30px;
+		color: #281815;
+		font-size: 17px;
+		font-weight: bold;
+		text-align: center;
+	}
+	& h3{
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.wr02{
+		@extend .clearfix;
+		margin: 0 0 37px 37px;
+			.wr{
+				float: left;
+				width: 301px;
+				margin-right: 19px;
+				border: 1px solid #c9caca;
+				font-family: "Hiragino Kaku Gothic Pro","メイリオ", sans-serif;
+				&:nth-child(3n){
+				margin-right: 0;
+			}
+		}
+		.rank{
+			display: table-cell;
+			width: 60px;
+			padding-right: 10px;
+			color: #281815;
+			font-size: 21px;
+			text-align: center;
+			line-height: 1;
+		}
+		img{
+			margin-bottom: 11px;
+			vertical-align: top;
+		}
+		.wr03{
+			display: table;
+			width: 100%;
+			font-size: 17px;
+			color: #281815;
+			line-height: 1.2;
+		}
+		.sum{
+			padding: 0 11px 8px 0;
+		}
+		.pro{
+			display: inline-block;
+			padding-bottom: 3px;
+			font-weight: bold;
+		}
+		.price{
+			font-size: 15px;
+		}
+		.price02{
+			float: right;
+			padding-top: 4px;
+			color: #919191;
+			font-size: 13px;
+		}
+	}
+}
+
+#feature{
+	width: 1020px;
+	margin: 0 auto;
+	padding: 0 10px;
+	font-size: 19px;
+	h2{
+		@extend .title;
+		margin-bottom: 36px;
+	}
+	.lead{
+		width: 1000px;
+		margin: 0 auto 90px auto;
+	}
+	.cnt{
+		margin-bottom: 89px;
+		&:after{
+			content: "";
+			display: block;
+			margin: 98px auto 0 auto;
+			width: 592px;
+			height: 2px;
+			background: #edeeee;
+		}
+		&:last-child:after{
+			height: 0;
+		}
+	}
+	h3{
+		margin-bottom: 40px;
+		font-size: 21px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.wr{
+		position: relative;
+		margin-bottom: 30px;
+		@extend .clearfix;
+		.img{
+			float: left;
+			width: 357px;
+			margin-right: 25px;
+		}
+		.sum{
+			padding-right: 80px;
+		}
+		.img_spc{
+			margin-bottom: 10px;
+		}
+		.img_spc02{
+			margin-right: 10px;
+		}
+		.wr02{
+			padding-bottom: 180px;
+			& .img02{
+				position: absolute;
+				bottom: 0;
+				right: 15px;
+			}
+		}
+	}
+	.wr03{
+		margin-top: -484px;
+		width: 1020px;
+		min-height: 486px;
+		padding-top: 3px;
+		border-bottom: 1px solid #e5e6e6;
+		color: #281815;
+		text-align: center;
+		font-size: 20px;
+		.cnt02{
+			margin-bottom: 29px;
+		}
+		h4{
+			margin-bottom: 7px;
+			font-size: 24px;
+			font-weight: bold;
+		}
+		p{
+			line-height: 1.8;
+		}
+	}
+}
+
+
+#price{
+	width: 1020px;
+	margin: 0 auto;
+	padding: 0 10px;
+	font-size: 22px;
+	h2{
+		@extend .title;
+	}
+	.wr{
+		position: relative;
+		margin-bottom: 30px;
+		@extend .clearfix;
+		& .img{
+			float: left;
+			width: 357px;
+			margin-right: 25px;
+		}
+		.sum{
+			padding-right: 80px;
+		}
+		.wr02{
+			padding-bottom: 180px;
+			& .img02{
+				position: absolute;
+				bottom: 0;
+				right: 18px;
+			}
+		}
+	}
+}
+
+
+#voice{
+	padding: 92px 66px 90px 68px;
+	background: #e5f4f5;
+	h2{
+		@extend .title;
+	}
+	> section{
+		position: relative;
+		max-width: 886px;
+		margin: 0 auto 12px auto;		
+		background: #fff;
+		color: #666;
+		@extend .clearfix;
+		h3{
+			margin-bottom: 17px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.img{
+			float: left;
+			width: 223px;
+		}
+		.wr{
+			margin-left: 250px;
+			padding: 13px 26px 13px 0;
+		}
+		.sum02{
+			position: absolute;
+			bottom: 21px;
+			right: 46px;
+		}
+	}
+}
+
+#qa{
+	margin-bottom: 31px;
+	padding: 92px 72px 30px 72px;
+	background: #f7f7f7;
+	h2{
+		@extend .title;
+		margin-bottom: 36px;
+	}
+	dl{
+		max-width: 876px;
+		margin: 0 auto;
+		padding: 10px;
+		background: #fff;
+		dt{
+			position: relative;
+			margin-bottom: 20px;
+			padding: 0 38px 0 50px;
+		}
+		dd{
+			position: relative;
+			font-size: 18px;
+			margin-bottom: 46px;
+			padding: 0 38px 0 50px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin-right:16px;
+		}
+	}
+	
+}
+
+#notice{
+	width: 980px;
+	margin: -70px auto 87px auto;
+	padding: 0 40px 90px 40px;
+	border-bottom: 1px solid #e5e6e6;
+	color: #898989;
+	h2{
+		display: none;
+	}
+}
+
+#gallery{
+	width: 1020px;
+	margin: 0 auto 48px auto;
+	h2{
+		@extend .title;
+		margin-bottom: 41px;
+	}
+	li{
+		display: inline-block;
+	}
+}
+
+#company{
+	width: 730px;
+	margin: 0 auto 87px auto;
+	padding: 0 241px 0 49px;
+	font-size: 16px;
+	font-family: "Hiragino Kaku Gothic Pro","メイリオ", sans-serif;
+	&>p{
+		margin-bottom: 12px;
+	}
+	section{
+		margin-bottom: 12px;
+	}
+	h2{
+		font-size: 18px;
+		font-weight: bold;
+	}
+}
+#policy{
+	@extend #company;
+}
+#law{
+	@extend #company;
+}
+#contact{
+	width: 925px;
+	@extend #company;
+	padding: 0 46px 0 49px;
+	form a{
+		color: #f8a36f;
+	}
+	input[type="text"],input[type="email"],input[type="tel"],textarea{
+		height: 16px;
+		padding: 10px 14px;
+		border: 1px solid #b5b5b5;
+		border-radius: 5px;
+	}
+	select{
+		padding: 0 14px;
+		border: 1px solid #b5b5b5;
+		border-radius: 5px;
+	}
+	table{
+		margin-bottom: 26px;
+		width: 100%;
+		border: 1px solid #959595;
+	}
+	th{
+		width: 252px;
+		padding: 7px 7px 7px 14px;
+		border: 1px solid #959595;
+		background: #f0f0f0;
+	}
+	td{
+		padding: 7px 0 7px 19px;
+		border: 1px solid #959595;
+	}
+	.txt{
+		color: #f26c85;
+	}
+	.txt02{
+		margin-right: 19px;
+	}
+	.pt01 input{
+		width: 270px;
+	}
+	.pt02 input{
+		width: 590px;
+	}
+	.pt03 input{
+		width: 590px;
+	}
+	.pt04 select{
+		width: 270px;
+	}
+	.pt05 textarea{
+		width: 590px;
+		height: 300px;
+	}
+	input[type="radio"] {
+		display: none;
+	}
+	label {
+		position: relative;
+		display: inline-block;
+		padding: 3px 3px 3px 20px;
+		cursor: pointer;
+	}
+	label::before {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 0;
+		width: 14px;
+		height: 14px;
+		margin-top: -8px;
+		background: #fff;
+		border: 1px solid #848484;
+		border-radius: 100%;
+	}
+	input[type="radio"]:checked + label::after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 4px;
+		width: 8px; 
+		height: 8px;
+		margin-top: -4px;
+		background: #f26c85;
+		border-radius: 100%;
+	}
+	.note{
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	.btn input{
+		width: 924px;
+		padding: 22px 35px;
+		background: #cdb889;
+		border: 1px solid #cdb889;
+		border-radius: 5px;
+		font-size: 21px;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+		cursor: pointer;
+		-webkit-appearance: none;
+	}
+}
+
+
+/* ---------- /5:contents ---------- */
+
+
+/* ----------------------------------
+ * clearfix
+ *
+ * @section clearfix
+ * 
+ */
+
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/* ---------- /clearfix ---------- */
